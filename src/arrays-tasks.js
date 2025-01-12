@@ -107,10 +107,9 @@ function removeFalsyValues(arr) {
  *    getStringsLength([ '', 'a', 'bc', 'def', 'ghij' ]) => [ 0, 1, 2, 3, 4 ]
  *    getStringsLength([ 'angular', 'react', 'ember' ]) => [ 7, 5, 5 ]
  */
-// const newArr = Array.from(arr, (elem) => elem.length);
-// return newArr;
-function getStringsLength(/* arr */) {
-  throw new Error('Not implemented');
+function getStringsLength(arr) {
+  const newArr = arr.map((elem) => elem.length);
+  return newArr;
 }
 
 /**
@@ -127,8 +126,12 @@ function getStringsLength(/* arr */) {
  *   getAverage([ 1, 10, 100, 1000 ])  => 277,75
  *   getAverage([ 2, 3, 3 ])  => 2,67
  */
-function getAverage(/* arr */) {
-  throw new Error('Not implemented');
+function getAverage(arr) {
+  const sumOfNums =
+    arr.length > 0 ? arr.reduce((sum, current) => sum + current) : 0;
+  const average =
+    sumOfNums > 0 ? Math.round((sumOfNums / arr.length) * 100) / 100 : 0;
+  return average;
 }
 
 /**
@@ -141,8 +144,10 @@ function getAverage(/* arr */) {
  *    isSameLength(['orange', 'banana', 'cherry']) => true
  *    isSameLength(['cat', 'dog', 'elephant']) => false
  */
-function isSameLength(/* arr */) {
-  throw new Error('Not implemented');
+function isSameLength(arr) {
+  const elemLength = arr[0].length;
+  const sameLength = arr.every((elem) => elem.length === elemLength);
+  return sameLength;
 }
 
 /**
@@ -156,8 +161,9 @@ function isSameLength(/* arr */) {
  *    isValueEqualsIndex([2, 1, 0, 4, 5]) => true
  *    isValueEqualsIndex([10, 20, 30, 40, 50]) => false
  */
-function isValueEqualsIndex(/* arr */) {
-  throw new Error('Not implemented');
+function isValueEqualsIndex(arr) {
+  const valuesEquals = arr.some((elem, index) => elem === index);
+  return valuesEquals;
 }
 
 /**
@@ -202,10 +208,8 @@ function getHead(arr, n) {
  *    getTail([ 'a', 'b', 'c', 'd'], 3) => [ 'b', 'c', 'd' ]
  *    getTail([ 'a', 'b', 'c', 'd'], 0) => []
  */
-// const newArr = arr.slice(-n);
-// return newArr;
-function getTail(/* arr, n */) {
-  throw new Error('Not implemented');
+function getTail(arr, n) {
+  return n > 0 ? arr.slice(-n) : [];
 }
 
 /**
@@ -271,6 +275,8 @@ function distinct(arr) {
  *    createNDimensionalArray(4, 2) => [[[[0, 0], [0, 0]], [[0, 0], [0, 0]]], [[[0, 0], [0, 0]], [[0, 0], [0, 0]]]]
  *    createNDimensionalArray(1, 1) => [0]
  */
+
+// const newArr = Array(n).fill(0, size);
 function createNDimensionalArray(/* n, size */) {
   throw new Error('Not implemented');
 }
@@ -286,8 +292,9 @@ function createNDimensionalArray(/* n, size */) {
  *    flattenArray(['a', ['b', ['c', 'd'], 'e'], 'f']) => ['a', 'b', 'c', 'd', 'e', 'f']
  *    flattenArray([1, 2, 3, 4]) => [1, 2, 3, 4]
  */
-function flattenArray(/* nestedArray */) {
-  throw new Error('Not implemented');
+function flattenArray(nestedArray) {
+  const newArr = nestedArray.flat(nestedArray.length);
+  return newArr;
 }
 
 /**
@@ -370,8 +377,10 @@ function generateOdds(len) {
  *   getElementByIndices(['one','two','three'], [2]) => 'three'  (arr[2])
  *   getElementByIndices([[[ 1, 2, 3]]], [ 0, 0, 1 ]) => 2        (arr[0][0][1])
  */
-function getElementByIndices(/* arr, indices */) {
-  throw new Error('Not implemented');
+// const index = indices.map((elem) => Array.of(elem));
+function getElementByIndices(arr, indices) {
+  const elem = indices.reduce((acc, index) => acc[index], arr);
+  return elem;
 }
 
 /**
@@ -431,8 +440,10 @@ function getIdentityMatrix(n) {
  *    getIndicesOfOddNumbers([2, 4, 6, 8, 10]) => []
  *    getIndicesOfOddNumbers([11, 22, 33, 44, 55]) => [0, 2, 4]
  */
-function getIndicesOfOddNumbers(/* numbers */) {
-  throw new Error('Not implemented');
+function getIndicesOfOddNumbers(numbers) {
+  const newArr = numbers.map((elem, index) => (elem % 2 !== 0 ? index : false));
+  const indexSort = newArr.filter((elem) => typeof elem === 'number');
+  return indexSort;
 }
 
 /**
@@ -463,8 +474,10 @@ function getHexRGBValues(/* arr */) {
  *   getMaxItems([ 10, 2, 7, 5, 3, -5 ], 3) => [ 10, 7, 5 ]
  *   getMaxItems([ 10, 10, 10, 10 ], 3) => [ 10, 10, 10 ]
  */
-function getMaxItems(/* arr, n */) {
-  throw new Error('Not implemented');
+function getMaxItems(arr, n) {
+  const sortArr = arr.sort((a, b) => a - b);
+  const maxNums = sortArr.reverse().slice(0, n);
+  return maxNums;
 }
 
 /**
